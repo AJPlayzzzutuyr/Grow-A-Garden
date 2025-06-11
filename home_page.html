@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grow A Garden Values</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function filterLinks() {
+      const query = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.category-link').forEach(link => {
+        link.style.display = link.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+      });
+    }
+  </script>
+</head>
+<body class="bg-green-50 min-h-screen">
+  <header class="bg-green-700 text-white p-6 text-center">
+    <h1 class="text-4xl font-bold">Grow A Garden Values</h1>
+    <p class="text-lg mt-2">Track all your in-game values in one place!</p>
+  </header>
+
+  <main class="p-6 max-w-4xl mx-auto">
+    <input type="text" id="search" oninput="filterLinks()" placeholder="Search categories..."
+           class="w-full p-3 mb-6 rounded border border-green-300">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <a href="pets.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-green-100 font-bold text-lg">Pets</a>
+      <a href="fruits.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-yellow-100 font-bold text-lg">Fruits</a>
+      <a href="eggs.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-purple-100 font-bold text-lg">Eggs</a>
+      <a href="other-items.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-blue-100 font-bold text-lg">Other Items</a>
+      <a href="stocks.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-gray-100 font-bold text-lg">📈 Stocks (Highlighted)</a>
+      <a href="all-in-one.html" class="category-link bg-white p-6 rounded shadow text-center hover:bg-pink-100 font-bold text-lg">All In One</a>
+    </div>
+  </main>
+
+  <footer class="bg-green-700 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 Grow A Garden Roblox Sim Values</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruits - Grow a Garden</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    const fruits = [
+      { id: 1, name: "Apple", rarity: "Common", description: "Juicy red apple." },
+      { id: 2, name: "Golden Banana", rarity: "Epic", description: "A very rare fruit made of gold!" }
+    ];
+
+    function renderFruits() {
+      const container = document.getElementById('fruits-container');
+      fruits.forEach(fruit => {
+        const card = document.createElement('div');
+        card.className = "bg-white p-4 rounded shadow hover:bg-yellow-50 cursor-pointer";
+        card.innerHTML = `<h3 class='text-xl font-bold'>${fruit.name}</h3><p>${fruit.rarity}</p>`;
+        card.onclick = () => showDetails(fruit);
+        container.appendChild(card);
+      });
+    }
+
+    function showDetails(fruit) {
+      document.getElementById('modal-title').textContent = fruit.name;
+      document.getElementById('modal-description').textContent = `${fruit.rarity} - ${fruit.description}`;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    window.onload = renderFruits;
+  </script>
+</head>
+<body class="bg-yellow-50">
+  <header class="bg-yellow-600 text-white p-6 text-center">
+    <h1 class="text-3xl font-bold">Fruits</h1>
+    <a href="index.html" class="text-white underline">Back to Home</a>
+  </header>
+
+  <main class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="fruits-container">
+    <!-- Fruits will be injected here -->
+  </main>
+
+  <!-- Detail Modal -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+      <h2 id="modal-title" class="text-xl font-bold mb-2"></h2>
+      <p id="modal-description" class="mb-4"></p>
+      <button onclick="closeModal()" class="bg-yellow-600 text-white px-4 py-2 rounded">Close</button>
+    </div>
+  </div>
+
+  <footer class="bg-yellow-600 text-white text-center p-4">
+    <p>&copy; 2025 Grow a Garden Sim Values</p>
+  </footer>
+</body>
+</html>
